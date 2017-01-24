@@ -17,7 +17,7 @@
     <mvc:annotation-driven />
     
     <!-- Scan les fichiers Java pour vérifier les annotatins -->
-    <context:component-scan base-package="com.ncr.test.repository,com.ncr.test.service,com.ncr.test.controller" />
+    <context:component-scan base-package="com.isen.test.repository,com.isen.test.service,com.isen.test.controller" />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
