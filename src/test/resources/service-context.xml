@@ -5,11 +5,11 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     
     <bean id="userRepository" class="org.easymock.EasyMock" factory-method="createStrictMock" primary="true">
-        <constructor-arg value="com.isen.test.repository.RepositoryUser" />
+        <constructor-arg value="com.ncr.test.repository.RepositoryUser" />
     </bean>
     
-    <bean id="serviceUser" class="com.isen.test.service.ServiceUserImpl" />
+    <bean id="serviceUser" class="com.ncr.test.service.ServiceUserImpl" />
 
-    <bean id="user" class="com.isen.test.model.User" />
+    <bean id="user" class="com.ncr.test.model.User" />
 
 </beans>
