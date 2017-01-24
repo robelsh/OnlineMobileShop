@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <USERT USERID="145" NAME="a" SURNAME="a" AGE="10" />
+    <USERT USERID="23" NAME="b" SURNAME="b" AGE="10" />
+    <USERT USERID="345" NAME="c" SURNAME="c" AGE="10" />
+</dataset>
