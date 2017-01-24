@@ -127,7 +127,7 @@
         </dependency>
     </dependencies>
 
-    <!-- <repositories>
+     <repositories>
         <repository>
             <id>spring-milestone</id>
             <name>Spring Portfolio Milestone Repository</name>
@@ -137,6 +137,6 @@
             <id>excilys-release</id>
             <url>http://repository.excilys.com/content/repositories/releases</url>
         </repository>
-    </repositories> -->
+    </repositories>
     <packaging>war</packaging>
 </project>

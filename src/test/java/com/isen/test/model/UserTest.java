@@ -1,4 +1,4 @@
-package com.ncr.test.model;
+package com.isen.test.model;
 
 import static org.junit.Assert.assertEquals;
 

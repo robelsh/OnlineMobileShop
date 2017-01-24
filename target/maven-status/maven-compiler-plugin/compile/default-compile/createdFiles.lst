@@ -1,0 +1,9 @@
+com\isen\test\model\UserUpdate.class
+com\isen\test\repository\RepositoryUserImpl.class
+com\isen\test\model\UserForm.class
+com\isen\test\model\UserUpdateForm.class
+com\isen\test\service\ServiceUserImpl.class
+com\isen\test\model\User.class
+com\isen\test\repository\RepositoryUser.class
+com\isen\test\service\ServiceUser.class
+com\isen\test\controller\DisplayUser.class
