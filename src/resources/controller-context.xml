@@ -6,11 +6,11 @@
 
     
     <bean id="userService" class="org.easymock.EasyMock" factory-method="createStrictMock" primary="true">
-        <constructor-arg value="com.ncr.test.service.ServiceUser" />
+        <constructor-arg value="com.isen.test.service.ServiceUser" />
     </bean>
-    <bean id="userController" class="com.ncr.test.controller.DisplayUser" />
+    <bean id="userController" class="com.isen.test.controller.DisplayUser" />
     
-    <bean id="user" class="com.ncr.test.model.User" />
+    <bean id="user" class="com.isen.test.model.User" />
     
     
     
