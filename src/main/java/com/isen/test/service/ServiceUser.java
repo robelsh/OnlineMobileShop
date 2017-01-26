@@ -13,5 +13,8 @@ public interface ServiceUser {
 
     void deleteUser(final int idUser);
 
-    void updateUser(final List<User> user);
+    void updateUsers(final List<User> user);
+    
+    void updateUser(User user);
+
 }

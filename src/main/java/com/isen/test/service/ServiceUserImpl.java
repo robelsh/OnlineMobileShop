@@ -42,7 +42,7 @@ public class ServiceUserImpl implements ServiceUser {
     }
 
     @Transactional
-    public void updateUser(List<User> listuser) {
+    public void updateUsers(List<User> listuser) {
         for (final User user : listuser) {
             repoUser.updateUser(user);
         }
@@ -54,4 +54,8 @@ public class ServiceUserImpl implements ServiceUser {
         User searchOneUser = repoUser.searchOneUser(user);
         return searchOneUser;
     }
+
+	public void updateUser(User user) {
+        repoUser.updateUser(user);
+	}
 }

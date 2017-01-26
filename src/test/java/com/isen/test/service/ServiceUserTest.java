@@ -71,7 +71,7 @@ public class ServiceUserTest {
         userRepository.updateUser((User) EasyMock.anyObject());
         listuser.add(user);
         replay();
-        serviceUser.updateUser(listuser);
+        serviceUser.updateUsers(listuser);
         verify();
     }
 
