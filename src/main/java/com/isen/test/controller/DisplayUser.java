@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.google.gson.Gson;
 import com.isen.test.model.User;
 import com.isen.test.model.UserForm;
 import com.isen.test.model.UserUpdate;
@@ -28,7 +29,7 @@ public class DisplayUser {
 
     @RequestMapping(value = "/DisplayUser", method = RequestMethod.GET)
     public String displayuser(ModelMap Model) {
-
+    	
         final List<User> model = service.searchUser();
         List<UserUpdate> usersDto = convertModelToDTO(model);
         if (Model.get("create") == null) {
@@ -42,6 +43,24 @@ public class DisplayUser {
         return "listuser";
     }
 
+    @RequestMapping(value = "/DisplayUserTest", method = RequestMethod.GET)
+    public String displayuserTest(ModelMap Model) {
+
+        final List<User> model = service.searchUser();
+        List<UserUpdate> usersDto = convertModelToDTO(model);
+        if (Model.get("create") == null) {
+            Model.addAttribute("create", new UserForm());
+        }
+        if (Model.get("update") == null) {
+            UserUpdateForm update = new UserUpdateForm();
+            update.setUsers(usersDto);
+            Model.addAttribute("update", update);
+        }
+        String json = new Gson().toJson(usersDto);
+        Model.addAttribute("json", json);
+
+        return "listuserTest";
+    }
     private List<UserUpdate> convertModelToDTO(List<User> model) {
         List<UserUpdate> usersDto = new ArrayList<UserUpdate>();
         for (User user : model) {
