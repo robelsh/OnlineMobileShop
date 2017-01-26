@@ -79,14 +79,25 @@ public class DisplayUser {
             final ModelMap Model) {
         if (!BindingResult.hasErrors()) {
             service.createUser(create.getName(), create.getSurname(), create.getAge());
+            
         }
         return displayuser(Model);
+    }
+    
+    @RequestMapping(value = "/createUser", method = RequestMethod.POST)
+    public String createUser(@ModelAttribute("create") final User create, final BindingResult BindingResult,
+            final ModelMap Model) {
+        if (!BindingResult.hasErrors()) {
+            service.createUser(create.getName(), create.getSurname(), create.getAge());
+            Model.addAttribute("json", "ok");
+        }
+        return "listuserTest";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String delete(@RequestParam("idUser") final int idUser, final ModelMap Model) {
         service.deleteUser(idUser);
-        return displayuser(Model);
+        return displayuserTest(Model);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
