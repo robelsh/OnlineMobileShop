@@ -63,17 +63,25 @@ public class RepositoryUserImpl implements RepositoryUser {
 
     }
 
-    public User searchOneUser(User userRepository) {
+    public User searchUserById(User userRepository) {
         final CriteriaBuilder lCriteriaBuilder = entityManager.getCriteriaBuilder();
-
         final CriteriaQuery<User> lCriteriaQuery = lCriteriaBuilder.createQuery(User.class);
         final Root<User> lRoot = lCriteriaQuery.from(User.class);
         javax.persistence.criteria.Path<Object> lPath = lRoot.get("id");
         final Expression<Boolean> lExpression = lCriteriaBuilder.equal(lPath, userRepository.getId());
         lCriteriaQuery.select(lRoot).where(lExpression);
         final TypedQuery<User> lQuery = entityManager.createQuery(lCriteriaQuery);
-
-        return (User) lQuery.getResultList();
-
+        return (User) lQuery.getResultList().get(0);
     }
+
+	public User searchUserByName(User userRepository) {
+        final CriteriaBuilder lCriteriaBuilder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<User> lCriteriaQuery = lCriteriaBuilder.createQuery(User.class);
+        final Root<User> lRoot = lCriteriaQuery.from(User.class);
+        javax.persistence.criteria.Path<Object> lPath = lRoot.get("name");
+        final Expression<Boolean> lExpression = lCriteriaBuilder.equal(lPath, userRepository.getName());
+        lCriteriaQuery.select(lRoot).where(lExpression);
+        final TypedQuery<User> lQuery = entityManager.createQuery(lCriteriaQuery);
+        return (User) lQuery.getResultList().get(0);
+	}
 }

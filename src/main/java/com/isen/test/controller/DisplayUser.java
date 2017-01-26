@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.google.gson.Gson;
 import com.isen.test.model.User;
 import com.isen.test.model.UserForm;
-import com.isen.test.model.UserUpdate;
+import com.isen.test.model.UserDTO;
 import com.isen.test.model.UserUpdateForm;
 import com.isen.test.service.ServiceUser;
 
@@ -31,7 +31,7 @@ public class DisplayUser {
     public String displayuser(ModelMap Model) {
     	
         final List<User> model = service.searchUser();
-        List<UserUpdate> usersDto = convertModelToDTO(model);
+        List<UserDTO> usersDto = convertModelToDTO(model);
         if (Model.get("create") == null) {
             Model.addAttribute("create", new UserForm());
         }
@@ -46,16 +46,16 @@ public class DisplayUser {
     @RequestMapping(value = "/DisplayUserTest", method = RequestMethod.GET)
     public String displayuserTest(ModelMap Model) {
         final List<User> model = service.searchUser();
-        List<UserUpdate> usersDto = convertModelToDTO(model);
+        List<UserDTO> usersDto = convertModelToDTO(model);
         String json = new Gson().toJson(usersDto);
         Model.addAttribute("json", json);
         return "listuserTest";
     }
     
-    private List<UserUpdate> convertModelToDTO(List<User> model) {
-        List<UserUpdate> usersDto = new ArrayList<UserUpdate>();
+    private List<UserDTO> convertModelToDTO(List<User> model) {
+        List<UserDTO> usersDto = new ArrayList<UserDTO>();
         for (User user : model) {
-            UserUpdate dto = new UserUpdate();
+            UserDTO dto = new UserDTO();
             dto.setId(user.getId());
             dto.setName(user.getName());
             dto.setSurname(user.getSurname());
@@ -63,6 +63,15 @@ public class DisplayUser {
             usersDto.add(dto);
         }
         return usersDto;
+    }
+    
+    private UserDTO convertModelToDTO(User model) {
+        UserDTO userDto = new UserDTO();
+        userDto.setId(model.getId());
+        userDto.setName(model.getName());
+        userDto.setSurname(model.getSurname());
+        userDto.setAge(model.getAge());
+        return userDto;
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -99,7 +108,7 @@ public class DisplayUser {
     public String update(@ModelAttribute("update") UserUpdateForm update, BindingResult pBindingResult, ModelMap Model) {
         List<User> listuser = new LinkedList<User>();
         if (!pBindingResult.hasErrors()) {
-            for (UserUpdate UpdateUser : update.getUsers()) {
+            for (UserDTO UpdateUser : update.getUsers()) {
                 User user = new User();
                 user.setId(UpdateUser.getId());
                 Integer age = Integer.valueOf(UpdateUser.getAge());
@@ -117,7 +126,7 @@ public class DisplayUser {
     public String updateUsers(@ModelAttribute("update") UserUpdateForm update, BindingResult pBindingResult, ModelMap Model) {
         List<User> listuser = new LinkedList<User>();
         if (!pBindingResult.hasErrors()) {
-            for (UserUpdate UpdateUser : update.getUsers()) {
+            for (UserDTO UpdateUser : update.getUsers()) {
                 User user = new User();
                 user.setId(UpdateUser.getId());
                 Integer age = Integer.valueOf(UpdateUser.getAge());
@@ -130,9 +139,19 @@ public class DisplayUser {
         }
         return "listuserTest";
     }
+    
     @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
     public String updateUser(@ModelAttribute("user") User user, BindingResult pBindingResult, ModelMap Model) {
         service.updateUser(user);
+        return "listuserTest";
+    }
+    
+    @RequestMapping(value = "/searchUserByName", method = RequestMethod.POST)
+    public String searchUserByName(@RequestParam("name") final String name, ModelMap Model) {
+    	final User model = service.searchUserByName(name);
+        UserDTO userDto = convertModelToDTO(model);
+        String json = new Gson().toJson(userDto);
+        Model.addAttribute("json", json);
         return "listuserTest";
     }
 }

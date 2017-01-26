@@ -4,7 +4,7 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class UserUpdate {
+public class UserDTO {
     private int id;
 
     @NotEmpty

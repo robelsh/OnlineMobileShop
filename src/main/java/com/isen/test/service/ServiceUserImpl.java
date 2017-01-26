@@ -48,14 +48,21 @@ public class ServiceUserImpl implements ServiceUser {
         }
     }
 
-    public User searchOneUser(int idUser) {
+    public User searchUserById(int idUser) {
         final User user = new User();
         user.setId(idUser);
-        User searchOneUser = repoUser.searchOneUser(user);
+        User searchOneUser = repoUser.searchUserById(user);
         return searchOneUser;
     }
 
 	public void updateUser(User user) {
         repoUser.updateUser(user);
+	}
+
+	public User searchUserByName(String nameUser) {
+		final User user = new User();
+		user.setName(nameUser);
+		User searchOneUser = repoUser.searchUserByName(user);
+        return searchOneUser;
 	}
 }

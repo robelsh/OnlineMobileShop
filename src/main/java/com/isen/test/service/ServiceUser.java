@@ -7,8 +7,10 @@ import com.isen.test.model.User;
 public interface ServiceUser {
     List<User> searchUser();
 
-    User searchOneUser(final int idUser);
-
+    User searchUserById(final int idUser);
+    
+    User searchUserByName(final String nameUser);
+    
     void createUser(final String name, final String surname, final int age);
 
     void deleteUser(final int idUser);

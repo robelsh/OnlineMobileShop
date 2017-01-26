@@ -13,5 +13,8 @@ public interface RepositoryUser {
 
     void updateUser(final User userRepository);
 
-    User searchOneUser(final User userRepository);
+    User searchUserById(final User userRepository);
+    
+    User searchUserByName(final User userRepository);
+
 }

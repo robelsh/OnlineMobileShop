@@ -4,13 +4,13 @@ import java.util.List;
 
 public class UserUpdateForm {
 
-    private List<UserUpdate> users;
+    private List<UserDTO> users;
 
-    public List<UserUpdate> getUsers() {
+    public List<UserDTO> getUsers() {
         return users;
     }
 
-    public void setUsers(List<UserUpdate> users) {
+    public void setUsers(List<UserDTO> users) {
         this.users = users;
     }
 
