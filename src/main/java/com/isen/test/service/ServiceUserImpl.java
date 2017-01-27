@@ -17,15 +17,13 @@ public class ServiceUserImpl implements ServiceUser {
     private RepositoryUser repoUser;
 
     @Transactional(readOnly = true)
-    public List<User> searchUser() {
-
-        List<User> searchUser = repoUser.searchUser();
+    public List<User> getAllUsers() {
+        List<User> searchUser = repoUser.getAllUsers();
         return searchUser;
     }
 
     @Transactional
     public void createUser(String name, String surname, int age) {
-
         final User user = new User();
         user.setAge(age);
         user.setName(name);
@@ -47,7 +45,8 @@ public class ServiceUserImpl implements ServiceUser {
             repoUser.updateUser(user);
         }
     }
-
+    
+    @Transactional
     public User searchUserById(int idUser) {
         final User user = new User();
         user.setId(idUser);
@@ -55,10 +54,12 @@ public class ServiceUserImpl implements ServiceUser {
         return searchOneUser;
     }
 
+    @Transactional
 	public void updateUser(User user) {
         repoUser.updateUser(user);
 	}
 
+    @Transactional
 	public User searchUserByName(String nameUser) {
 		final User user = new User();
 		user.setName(nameUser);

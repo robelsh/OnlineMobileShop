@@ -21,14 +21,12 @@ public class RepositoryUserImpl implements RepositoryUser {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<User> searchUser() {
+    public List<User> getAllUsers() {
         final CriteriaBuilder lCriteriaBuilder = entityManager.getCriteriaBuilder();
-
         final CriteriaQuery<User> lCriteriaQuery = lCriteriaBuilder.createQuery(User.class);
         final Root<User> lRoot = lCriteriaQuery.from(User.class);
         lCriteriaQuery.select(lRoot);
         final TypedQuery<User> lTypedQuery = entityManager.createQuery(lCriteriaQuery);
-
         return lTypedQuery.getResultList();
     }
 

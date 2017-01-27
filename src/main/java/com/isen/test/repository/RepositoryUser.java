@@ -5,7 +5,7 @@ import java.util.List;
 import com.isen.test.model.User;
 
 public interface RepositoryUser {
-    List<User> searchUser();
+    List<User> getAllUsers();
 
     void createUser(final User userRepository);
 

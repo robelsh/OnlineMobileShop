@@ -71,7 +71,7 @@ public class DisplayUserTest {
 
     @Test
     public void displayuserTest() throws Exception {
-        EasyMock.expect(userService.searchUser()).andReturn(listuser);
+        EasyMock.expect(userService.getAllUsers()).andReturn(listuser);
         replay();
         mockMvc.perform(get("/DisplayUser")).andExpect(status().isOk());
         verify();

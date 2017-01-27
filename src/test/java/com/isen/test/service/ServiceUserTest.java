@@ -85,9 +85,9 @@ public class ServiceUserTest {
 
     @Test
     public void testSearchUser() {
-        EasyMock.expect(userRepository.searchUser()).andReturn(listuser);
+        EasyMock.expect(userRepository.getAllUsers()).andReturn(listuser);
         replay();
-        listuser = serviceUser.searchUser();
+        listuser = serviceUser.getAllUsers();
         verify();
 
     }

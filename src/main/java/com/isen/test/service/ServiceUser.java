@@ -5,7 +5,7 @@ import java.util.List;
 import com.isen.test.model.User;
 
 public interface ServiceUser {
-    List<User> searchUser();
+    List<User> getAllUsers();
 
     User searchUserById(final int idUser);
     

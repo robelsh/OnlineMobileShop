@@ -26,31 +26,6 @@ public class DisplayUser {
 
     @Inject
     private ServiceUser service;
-
-    @RequestMapping(value = "/DisplayUser", method = RequestMethod.GET)
-    public String displayuser(ModelMap Model) {
-    	
-        final List<User> model = service.searchUser();
-        List<UserDTO> usersDto = convertModelToDTO(model);
-        if (Model.get("create") == null) {
-            Model.addAttribute("create", new UserForm());
-        }
-        if (Model.get("update") == null) {
-            UserUpdateForm update = new UserUpdateForm();
-            update.setUsers(usersDto);
-            Model.addAttribute("update", update);
-        }
-        return "listuser";
-    }
-
-    @RequestMapping(value = "/DisplayUserTest", method = RequestMethod.GET)
-    public String displayuserTest(ModelMap Model) {
-        final List<User> model = service.searchUser();
-        List<UserDTO> usersDto = convertModelToDTO(model);
-        String json = new Gson().toJson(usersDto);
-        Model.addAttribute("json", json);
-        return "listuserTest";
-    }
     
     private List<UserDTO> convertModelToDTO(List<User> model) {
         List<UserDTO> usersDto = new ArrayList<UserDTO>();
@@ -72,6 +47,31 @@ public class DisplayUser {
         userDto.setSurname(model.getSurname());
         userDto.setAge(model.getAge());
         return userDto;
+    }
+    
+    @RequestMapping(value = "/DisplayUser", method = RequestMethod.GET)
+    public String displayuser(ModelMap Model) {
+    	
+        final List<User> model = service.getAllUsers();
+        List<UserDTO> usersDto = convertModelToDTO(model);
+        if (Model.get("create") == null) {
+            Model.addAttribute("create", new UserForm());
+        }
+        if (Model.get("update") == null) {
+            UserUpdateForm update = new UserUpdateForm();
+            update.setUsers(usersDto);
+            Model.addAttribute("update", update);
+        }
+        return "listuser";
+    }
+
+    @RequestMapping(value = "/DisplayUserTest", method = RequestMethod.GET)
+    public String displayuserTest(ModelMap Model) {
+        final List<User> model = service.getAllUsers();
+        List<UserDTO> usersDto = convertModelToDTO(model);
+        String json = new Gson().toJson(usersDto);
+        Model.addAttribute("json", json);
+        return "listuserTest";
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
