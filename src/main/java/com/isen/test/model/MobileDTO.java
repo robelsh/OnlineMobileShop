@@ -15,7 +15,7 @@ public class MobileDTO {
 	private String description;
     
     @NotEmpty
-	private Double price;
+	private Float price;
     
     @NotEmpty
 	private String model;
@@ -45,10 +45,10 @@ public class MobileDTO {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Double getPrice() {
+	public Float getPrice() {
 		return price;
 	}
-	public void setPrice(Double price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 	public String getModel() {

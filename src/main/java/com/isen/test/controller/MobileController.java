@@ -18,6 +18,7 @@ import com.isen.test.service.ServiceMobile;
 
 @Controller
 public class MobileController {
+	
     @Inject
     private ServiceMobile service;
     
@@ -53,7 +54,7 @@ public class MobileController {
         List<MobileDTO> mobilesDto = convertModelToDTO(model);
         String json = new Gson().toJson(mobilesDto);
         Model.addAttribute("json", json);
-        return "listuser";
+        return "listuserTest";
     }
     
     @RequestMapping(value = "/deleteMobile", method = RequestMethod.POST)

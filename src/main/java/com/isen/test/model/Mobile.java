@@ -18,7 +18,7 @@ public class Mobile {
 	private String brand;
 	private int year;
 	private String description;
-	private Double price;
+	private Float price;
 	private String model;
 	public int getId() {
 		return id;
@@ -44,10 +44,10 @@ public class Mobile {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Double getPrice() {
+	public Float getPrice() {
 		return price;
 	}
-	public void setPrice(Double price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 	public String getModel() {
