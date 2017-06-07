@@ -19,7 +19,12 @@ public class MobileDTO {
     
     @NotEmpty
 	private String model;
-	
+    
+    @NotEmpty
+    private int inventory;
+    
+	@NotEmpty
+	private String image;
 	public int getId() {
 		return id;
 	}
@@ -56,5 +61,21 @@ public class MobileDTO {
 	}
 	public void setModel(String model) {
 		this.model = model;
+	}
+
+	public int getInventory() {
+		return inventory;
+	}
+
+	public void setInventory(int inventory) {
+		this.inventory = inventory;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }

@@ -21,28 +21,28 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.isen.test.model.User;
-import com.isen.test.service.ServiceUser;
+import com.isen.test.model.Mobile;
+import com.isen.test.service.ServiceMobile;
 
 @ContextConfiguration("classpath:/controller-context.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-public class DisplayUserTest {
+public class DisplayMobileTest {
 
     private MockMvc mockMvc;
 
     @Inject
-    private User user;
+    private Mobile mobile;
 
     private Object[] mocks;
 
-    List<User> listuser = new ArrayList<User>();
+    List<Mobile> listmobile = new ArrayList<Mobile>();
 
     @Inject
-    private DisplayUser userController;
+    private MobileController mobileController;
 
     @Inject
-    private ServiceUser userService;
+    private ServiceMobile mobileService;
 
     private void reset() {
         EasyMock.reset(mocks);
@@ -58,9 +58,9 @@ public class DisplayUserTest {
 
     @Before
     public void setUp() {
-        mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(mobileController).build();
         mocks = new Object[] {
-            userService
+            mobileService
         };
     }
 
@@ -70,24 +70,17 @@ public class DisplayUserTest {
     }
 
     @Test
-    public void displayuserTest() throws Exception {
-        EasyMock.expect(userService.getAllUsers()).andReturn(listuser);
+    public void displaymobileTest() throws Exception {
+        EasyMock.expect(mobileService.getAllMobiles()).andReturn(listmobile);
         replay();
-        mockMvc.perform(get("/DisplayUser")).andExpect(status().isOk());
+        mockMvc.perform(get("/DisplayMobile")).andExpect(status().isOk());
         verify();
     }
 
     @Test
     public void createTest() throws Exception {
-        user = (User) EasyMock.anyObject();
-        userService.createUser(user.getName(), user.getSurname(), user.getAge());
-        replay();
-        mockMvc.perform(post("/create")).andExpect(status().isOk())
-                .andExpect(model().attribute("create", hasProperty("name", is(user.getName()))))
-                .andExpect(model().attribute("create", hasProperty("surname", is(user.getSurname()))))
-                .andExpect(model().attribute("create", hasProperty("age", is(user.getAge()))));
-        ;
-        verify();
+        mobile = (Mobile) EasyMock.anyObject();
+        //Todo create test
     }
 
     @Test

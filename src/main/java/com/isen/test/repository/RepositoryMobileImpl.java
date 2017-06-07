@@ -28,7 +28,7 @@ public class RepositoryMobileImpl implements RepositoryMobile {
         return lTypedQuery.getResultList();
 	}
 
-	public void createUser(Mobile mobile) {
+	public void createMobile(Mobile mobile) {
         entityManager.persist(mobile);		
 	}
 

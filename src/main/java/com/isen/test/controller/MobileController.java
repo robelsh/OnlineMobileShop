@@ -32,6 +32,8 @@ public class MobileController {
             dto.setModel(mobile.getModel());
             dto.setPrice(mobile.getPrice());
             dto.setYear(mobile.getYear());
+            dto.setInventory(mobile.getInventory());
+            dto.setImage(mobile.getImage());
             mobilesDto.add(dto);
         }
         return mobilesDto;
@@ -45,21 +47,23 @@ public class MobileController {
     	mobileDto.setModel(model.getModel());
     	mobileDto.setPrice(model.getPrice());
     	mobileDto.setYear(model.getYear());
+    	mobileDto.setInventory(model.getInventory());
+    	mobileDto.setImage(model.getImage());
         return mobileDto;
     }
     
     @RequestMapping(value = "/DisplayMobile", method = RequestMethod.GET)
-    public String displayuser(ModelMap Model) {
+    public String displaymobile(ModelMap Model) {
         final List<Mobile> model = service.getAllMobiles();
         List<MobileDTO> mobilesDto = convertModelToDTO(model);
         String json = new Gson().toJson(mobilesDto);
         Model.addAttribute("json", json);
-        return "listuserTest";
+        return "listmobileTest";
     }
     
     @RequestMapping(value = "/deleteMobile", method = RequestMethod.POST)
-    public String deleteUser(@RequestParam("idMobile") final int idMobile, final ModelMap Model) {
+    public String deleteMobile(@RequestParam("idMobile") final int idMobile, final ModelMap Model) {
         service.deleteMobile(idMobile);
-        return "listuserTest";
+        return "listmobileTest";
     }
  }

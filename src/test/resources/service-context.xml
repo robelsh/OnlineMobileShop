@@ -4,12 +4,12 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     
-    <bean id="userRepository" class="org.easymock.EasyMock" factory-method="createStrictMock" primary="true">
-        <constructor-arg value="com.isen.test.repository.RepositoryUser" />
+    <bean id="mobileRepository" class="org.easymock.EasyMock" factory-method="createStrictMock" primary="true">
+        <constructor-arg value="com.isen.test.repository.RepositoryMobile" />
     </bean>
     
-    <bean id="serviceUser" class="com.isen.test.service.ServiceUserImpl" />
+    <bean id="serviceMobile" class="com.isen.test.service.ServiceMobileImpl" />
 
-    <bean id="user" class="com.isen.test.model.User" />
+    <bean id="mobile" class="com.isen.test.model.Mobile" />
 
 </beans>

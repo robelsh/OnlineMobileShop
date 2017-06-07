@@ -1,9 +1,7 @@
-C:\Users\Etienne Jézéquel\Documents\OnlineMobileShop\src\main\java\com\isen\test\service\ServiceUser.java
-C:\Users\Etienne Jézéquel\Documents\OnlineMobileShop\src\main\java\com\isen\test\repository\RepositoryUserImpl.java
-C:\Users\Etienne Jézéquel\Documents\OnlineMobileShop\src\main\java\com\isen\test\service\ServiceUserImpl.java
-C:\Users\Etienne Jézéquel\Documents\OnlineMobileShop\src\main\java\com\isen\test\controller\DisplayUser.java
-C:\Users\Etienne Jézéquel\Documents\OnlineMobileShop\src\main\java\com\isen\test\model\UserUpdate.java
-C:\Users\Etienne Jézéquel\Documents\OnlineMobileShop\src\main\java\com\isen\test\model\UserForm.java
-C:\Users\Etienne Jézéquel\Documents\OnlineMobileShop\src\main\java\com\isen\test\repository\RepositoryUser.java
-C:\Users\Etienne Jézéquel\Documents\OnlineMobileShop\src\main\java\com\isen\test\model\UserUpdateForm.java
-C:\Users\Etienne Jézéquel\Documents\OnlineMobileShop\src\main\java\com\isen\test\model\User.java
+E:\EclipseWorkspace\OnlineMobileShop\src\main\java\com\isen\test\service\ServiceMobile.java
+E:\EclipseWorkspace\OnlineMobileShop\src\main\java\com\isen\test\controller\MobileController.java
+E:\EclipseWorkspace\OnlineMobileShop\src\main\java\com\isen\test\repository\RepositoryMobileImpl.java
+E:\EclipseWorkspace\OnlineMobileShop\src\main\java\com\isen\test\service\ServiceMobileImpl.java
+E:\EclipseWorkspace\OnlineMobileShop\src\main\java\com\isen\test\model\Mobile.java
+E:\EclipseWorkspace\OnlineMobileShop\src\main\java\com\isen\test\repository\RepositoryMobile.java
+E:\EclipseWorkspace\OnlineMobileShop\src\main\java\com\isen\test\model\MobileDTO.java

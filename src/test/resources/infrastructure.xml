@@ -15,7 +15,7 @@
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="persistenceUnitManager" ref="persistenceUnitManager" />
         <property name="dataSource" ref="dataSource" />
-        <property name="persistenceUnitName" value="userPU" />
+        <property name="persistenceUnitName" value="mobilePU" />
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="showSql" value="true" />

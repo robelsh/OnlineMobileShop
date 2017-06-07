@@ -12,14 +12,16 @@ import javax.persistence.Table;
 public class Mobile {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "USERID")
+    @Column(name = "ID")
     private int id;
-
 	private String brand;
 	private int year;
 	private String description;
 	private Float price;
 	private String model;
+	private int inventory;
+	private String image;
+	
 	public int getId() {
 		return id;
 	}
@@ -56,8 +58,17 @@ public class Mobile {
 	public void setModel(String model) {
 		this.model = model;
 	}
-	
-	
-	
+	public int getInventory() {
+		return inventory;
+	}
+	public void setInventory(int inventory) {
+		this.inventory = inventory;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	
 }
