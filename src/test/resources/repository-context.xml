@@ -21,5 +21,7 @@
     <bean id="mobile" class="com.isen.test.model.Mobile" />
 
     <tx:annotation-driven />
-
+ 	<bean id="dataSet" class="org.dbunit.dataset.xml.FlatXmlDataSet">
+        <constructor-arg value="classpath:dataset.xml" />
+    </bean>
 </beans>

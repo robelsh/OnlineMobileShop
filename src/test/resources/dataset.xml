@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <MOBILET ID="145" BRAND="a" MODEL="a" YEAR="10" />
+    <MOBILET ID="23" BRAND="b" MODEL="b" YEAR="10" />
+    <MOBILET ID="345" BRAND="c" MODEL="c" YEAR="10" />
+</dataset>
