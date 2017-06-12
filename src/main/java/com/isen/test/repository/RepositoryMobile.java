@@ -8,7 +8,7 @@ public interface RepositoryMobile {
 	
     List<Mobile> getAllMobiles();
     
-    void createMobile(final Mobile mobileRepository);
-
-    void deleteMobile(final Mobile mobileRepository);
+    String updateMobile(Mobile mobile);
+    
+    Mobile getMobileById(final int id);
 }

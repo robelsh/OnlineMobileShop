@@ -23,9 +23,11 @@ public class ServiceMobileImpl implements ServiceMobile {
 	}
     
     @Transactional
-	public void deleteMobile(int idMobile) {
-    	final Mobile mobile = new Mobile();
-        mobile.setId(idMobile);
-        repoMobile.deleteMobile(mobile);
+	public String updateMobile(Mobile mobile) {
+		return repoMobile.updateMobile(mobile);
+	}
+
+	public Mobile getMobileById(int id) {
+		return repoMobile.getMobileById(id);
 	}
 }

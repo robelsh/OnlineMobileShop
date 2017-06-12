@@ -61,9 +61,22 @@ public class MobileController {
         return "listmobileTest";
     }
     
-    @RequestMapping(value = "/deleteMobile", method = RequestMethod.POST)
-    public String deleteMobile(@RequestParam("idMobile") final int idMobile, final ModelMap Model) {
-        service.deleteMobile(idMobile);
-        return "listmobileTest";
-    }
- }
+    @RequestMapping(value = "/updateMobile", method = RequestMethod.POST)
+    public String updateMobile(@RequestParam("id") final int idMobile, @RequestParam("inventory") final int inventory, final ModelMap Model) {
+    	Mobile model = service.getMobileById(idMobile);
+    	model.setInventory(inventory);
+    	if (model.getBrand() == "") {
+    		Model.addAttribute("json", "Oups !");
+        	return "listmobileTest";
+    	} else {
+    		String ret = service.updateMobile(model);
+        	if (ret == "200") {
+        		Model.addAttribute("json", "200 OK");
+            	return "listmobileTest";
+        	} else {
+        		Model.addAttribute("json", "Oups !");
+            	return "listmobileTest";
+        	}
+    	}
+ 	}
+}

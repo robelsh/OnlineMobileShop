@@ -6,7 +6,8 @@ import com.isen.test.model.Mobile;
 
 public interface ServiceMobile {
     List<Mobile> getAllMobiles();
+ 
+    String updateMobile(Mobile mobile);
     
-    void deleteMobile(final int idMobile);
-
+    Mobile getMobileById(final int id);    
 }
